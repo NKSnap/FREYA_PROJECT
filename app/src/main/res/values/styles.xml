@@ -3,7 +3,7 @@
 
     <style name="info_text">
         <item name="android:textSize">19sp</item>
-        <item name="android:textColor">#CC000000</item>
+        <item name="android:textColor">#EB000000</item>
         <item name="android:fontFamily">@font/buenard_regular</item>
     </style>
 

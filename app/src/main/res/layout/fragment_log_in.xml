@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="370dp"
     android:background="@color/white"
     tools:context=".view.signin.fragment.LogInFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="11dp"
         android:orientation="vertical">
@@ -18,10 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/sign_in"
-            android:textSize="29sp"
             android:fontFamily="@font/buenard_bold"
-            android:textColor="#9A0D00"/>
+            android:text="@string/sign_in"
+            android:textColor="@color/black"
+            android:textSize="29sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -32,13 +32,12 @@
                 android:id="@+id/et_log_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="2dp"
                 android:background="@color/white"
                 android:hint="@string/hint_email" />
-
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -50,10 +49,10 @@
                 android:id="@+id/et_log_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="2dp"
                 android:background="@color/white"
                 android:hint="@string/hint_password" />
 
@@ -61,13 +60,46 @@
 
         <Button
             android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="#EDFD624E"
+            android:text="@string/button_login" />
+
+        <Button
+            android:id="@+id/btn_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_login"
-            android:layout_gravity="end"
-            android:layout_marginTop="7dp"
-            android:layout_marginEnd="13dp"/>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/white"
+            android:text="@string/button_forgot_password"
+            android:textColor="@color/btn_blue" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/info_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/text_not_registered" />
+
+            <Button
+                android:id="@+id/btn_not_registered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="103dp"
+                android:backgroundTint="@color/white"
+                android:text="@string/button_not_registered"
+                android:textColor="@color/btn_blue" />
+        </LinearLayout>
     </LinearLayout>
-
 </FrameLayout>
