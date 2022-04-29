@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">FREYA</string>
+
+    // Sing In Fragment
+    <string name="sign_in_freya">FREYA</string>
+    <string name="sing_in_welcome">Добро подаловать!</string>
+    <string name="sing_in_welcome_info1">Чтобы записаться на стрижку, вам</string>
+    <string name="sing_in_welcome_info2">необходимо войти в аккаунт!</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="sign_in">SING IN</string>
+    <string name="button_login">LOGIN</string>
+
 </resources>

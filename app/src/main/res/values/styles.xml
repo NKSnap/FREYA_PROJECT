@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="info_text">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">#CC000000</item>
+        <item name="android:fontFamily">@font/buenard_regular</item>
+    </style>
+
+</resources>
