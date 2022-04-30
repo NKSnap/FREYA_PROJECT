@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.signin.activity.SingInActivity"
-    android:background="#D6D6D6">
+    android:background="@color/background">
 
     <androidx.fragment.app.FragmentContainerView
         android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package com.firstapplication.freya.view.signin.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,19 +14,23 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.firstapplication.freya.MainActivity;
 import com.firstapplication.freya.R;
+import com.firstapplication.freya.presenter.signin.SingInPresenter;
+import com.firstapplication.freya.view.registration.activity.RegistrationActivity;
 
 
 public class LogInFragment extends Fragment implements View.OnClickListener {
-
     Button btnRegister, btnLogin, btnForgotPass;
     EditText etEmail, etPassword;
     Context context;
+    SingInPresenter presenter;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
+        presenter = new SingInPresenter(context);
     }
 
     @Override
@@ -78,6 +83,8 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
 
     private void registerNewAccount() {
         // Open activity for registration
+        Intent intent = new Intent(context, RegistrationActivity.class);
+        startActivity(intent);
     }
 
 }

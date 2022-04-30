@@ -14,5 +14,7 @@
     <string name="text_not_registered">Not registered yet?</string>
     <string name="button_not_registered">REGISTER</string>
     <string name="button_forgot_password">I FORGOT MY PASSWORD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
