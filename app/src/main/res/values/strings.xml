@@ -19,5 +19,13 @@
     <string name="text_reg_in">Данные для входа</string>
     <string name="text_person_data">Персональные данные</string>
 
+    <string name="text_gender_male">Мужчина</string>
+    <string name="text_gender_female">Женщина</string>
+    <string name="button_register">Зарегистрироваться</string>
+    <string name="text_surname">Фамилия</string>
+    <string name="text_name">Имя</string>
+    <string name="text_patronymic">Отчество</string>
+    <string name="button_change">Изменить</string>
+
 
 </resources>
