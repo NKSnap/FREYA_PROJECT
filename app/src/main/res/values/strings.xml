@@ -2,6 +2,7 @@
     <string name="app_name">FREYA</string>
 
     // Sing In Fragment
+    <string name="sign_in">SING IN</string>
     <string name="sign_in_freya">FREYA</string>
     <string name="sing_in_welcome">Добро подаловать!</string>
     <string name="sing_in_welcome_info1">Чтобы записаться на стрижку, вам</string>
@@ -9,12 +10,14 @@
 
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
-    <string name="sign_in">SING IN</string>
+    <string name="hint_number">Number</string>
+
     <string name="button_login">CONTINUE</string>
     <string name="text_not_registered">Not registered yet?</string>
     <string name="button_not_registered">REGISTER</string>
     <string name="button_forgot_password">I FORGOT MY PASSWORD</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_reg_in">Данные для входа</string>
+    <string name="text_person_data">Персональные данные</string>
+
 
 </resources>
