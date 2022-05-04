@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.firstapplication.freya.R;
@@ -20,7 +21,7 @@ import java.util.GregorianCalendar;
 
 public class PersonalDataFragment extends Fragment {
 
-    TextView date;
+    Button date;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,11 +34,11 @@ public class PersonalDataFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        date = view.findViewById(R.id.tv_reg_date);
+        date = view.findViewById(R.id.btn_reg_date);
         setDefaultDate(date);
     }
 
-    private void setDefaultDate(TextView view){
+    private void setDefaultDate(Button view){
         Calendar calendar = new GregorianCalendar();
 
         String day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
