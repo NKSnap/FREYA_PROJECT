@@ -8,16 +8,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.presenter.registration.RegistrationPresenter;
+import com.firstapplication.freya.view.registration.activity.RegistrationActivity;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -42,7 +48,7 @@ public class PersonalDataFragment extends Fragment implements View.OnClickListen
     private Context context;
 
     private int gender = ERROR;
-    private final Calendar dateAndTime = new GregorianCalendar();
+    private final Calendar today = new GregorianCalendar();
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -69,17 +75,57 @@ public class PersonalDataFragment extends Fragment implements View.OnClickListen
         etName = view.findViewById(R.id.et_reg_name);
         etPatronymic = view.findViewById(R.id.et_reg_patronymic);
 
+        view.findViewById(R.id.btn_reg_register).setOnClickListener(this);
         view.findViewById(R.id.radio_btn_male).setOnClickListener(this);
         view.findViewById(R.id.radio_btn_female).setOnClickListener(this);
 
         date = view.findViewById(R.id.btn_reg_date);
         date.setText(presenter.setDate(null));
         date.setOnClickListener(this);
-
-        view.findViewById(R.id.btn_reg_register).setOnClickListener(this);
     }
 
-    private void getGender(View view) {
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case (int) R.id.btn_reg_register:
+                String surname = etSurname.getText().toString();
+                String name = etName.getText().toString();
+                String patronymic = etPatronymic.getText().toString();
+                String date = this.date.getText().toString();
+                if (gender != ERROR && !surname.equals("") && !name.equals("")
+                        && !patronymic.equals("") && presenter.dateValidator(date))
+                    dataSender.onDataSend(new RegistrationData(
+                            surname, name, patronymic, gender, date));
+                else
+                    emptyFields();
+                break;
+            case (int) R.id.btn_reg_date:
+                new DatePickerDialog(context, dateListener,
+                        today.get(Calendar.YEAR),
+                        today.get(Calendar.MONTH),
+                        today.get(Calendar.DAY_OF_MONTH))
+                        .show();
+                break;
+            case (int) R.id.radio_btn_male:
+            case (int) R.id.radio_btn_female:
+                setGender(v);
+                break;
+        }
+    }
+
+    private final DatePickerDialog.OnDateSetListener dateListener = (view, year, month, dayOfMonth) -> {
+        today.set(Calendar.YEAR, year);
+        today.set(Calendar.MONTH, month);
+        today.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        date.setText(presenter.setDate(today));
+    };
+
+    public void emptyFields() {
+        Toast.makeText(context, "Fill in all the fields",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    private void setGender(View view) {
         boolean checked = ((RadioButton) view).isChecked();
 
         switch (view.getId()) {
@@ -91,41 +137,9 @@ public class PersonalDataFragment extends Fragment implements View.OnClickListen
                 if (checked)
                     gender = FEMALE;
                 break;
+            default:
+                gender = ERROR;
         }
     }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case (int) R.id.btn_reg_register:
-                String surname = etSurname.getText().toString();
-                String name = etName.getText().toString();
-                String patronymic = etPatronymic.getText().toString();
-                String date = this.date.getText().toString();
-                if (gender != ERROR)
-                    dataSender.onDataSend(new RegistrationData(
-                            surname, name, patronymic, gender, date
-                    ));
-                break;
-            case (int) R.id.btn_reg_date:
-                new DatePickerDialog(context, dateListener,
-                        dateAndTime.get(Calendar.YEAR),
-                        dateAndTime.get(Calendar.MONTH),
-                        dateAndTime.get(Calendar.DAY_OF_MONTH))
-                        .show();
-                break;
-            case (int) R.id.radio_btn_male:
-            case (int) R.id.radio_btn_female:
-                getGender(v);
-                break;
-        }
-    }
-
-    private final DatePickerDialog.OnDateSetListener dateListener = (view, year, month, dayOfMonth) -> {
-        dateAndTime.set(Calendar.YEAR, year);
-        dateAndTime.set(Calendar.MONTH, month);
-        dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        date.setText(presenter.setDate(dateAndTime));
-    };
 
 }

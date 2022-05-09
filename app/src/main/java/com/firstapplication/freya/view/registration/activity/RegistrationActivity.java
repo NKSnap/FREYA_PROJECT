@@ -2,6 +2,7 @@ package com.firstapplication.freya.view.registration.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.firstapplication.freya.R;

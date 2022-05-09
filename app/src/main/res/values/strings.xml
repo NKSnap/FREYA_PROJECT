@@ -2,20 +2,20 @@
     <string name="app_name">FREYA</string>
 
     // Sing In Fragment
-    <string name="sign_in">SING IN</string>
+    <string name="sign_in">Войти</string>
     <string name="sign_in_freya">FREYA</string>
     <string name="sing_in_welcome">Добро подаловать!</string>
     <string name="sing_in_welcome_info1">Чтобы записаться на стрижку, вам</string>
     <string name="sing_in_welcome_info2">необходимо войти в аккаунт!</string>
 
-    <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
-    <string name="hint_number">Number</string>
+    <string name="hint_email">Почта</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_number">Номер</string>
 
-    <string name="button_login">CONTINUE</string>
-    <string name="text_not_registered">Not registered yet?</string>
-    <string name="button_not_registered">REGISTER</string>
-    <string name="button_forgot_password">I FORGOT MY PASSWORD</string>
+    <string name="button_login">Продолжить</string>
+    <string name="text_not_registered">Ещё не зарегистрированы?</string>
+    <string name="button_not_registered">Зарегистрироваться</string>
+    <string name="button_forgot_password">Забыли пароль?</string>
     <string name="text_reg_in">Данные для входа</string>
     <string name="text_person_data">Персональные данные</string>
 
@@ -26,6 +26,14 @@
     <string name="text_name">Имя</string>
     <string name="text_patronymic">Отчество</string>
     <string name="button_change">Изменить</string>
+    <string name="bel_number_code">+375</string>
+
+
+    <string-array name="mails">
+        <item>mail.ru</item>
+        <item>gmail.com</item>
+        <item>yandex.ru</item>
+    </string-array>
 
 
 </resources>
