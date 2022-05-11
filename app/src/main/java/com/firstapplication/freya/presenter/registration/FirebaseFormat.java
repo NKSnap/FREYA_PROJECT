@@ -1,6 +1,7 @@
 package com.firstapplication.freya.presenter.registration;
 
-public class DBFormat {
+
+public class FirebaseFormat {
     private String fID;
     private String email;
     private String number;
@@ -8,13 +9,21 @@ public class DBFormat {
     private String surname;
     private String patronymic;
 
-    public DBFormat(String email, String number, String password, String surname, String patronymic) {
+    public FirebaseFormat() {
+
+    }
+
+    public FirebaseFormat(String email, String number, String password, String surname, String patronymic) {
         this.email = email;
         this.number = number;
         this.password = password;
         this.surname = surname;
         this.patronymic = patronymic;
-        fID = email;
+        fID = number;
+    }
+
+    public String getFID() {
+        return fID;
     }
 
     public String getEmail() {
@@ -36,4 +45,5 @@ public class DBFormat {
     public String getPatronymic() {
         return patronymic;
     }
+
 }

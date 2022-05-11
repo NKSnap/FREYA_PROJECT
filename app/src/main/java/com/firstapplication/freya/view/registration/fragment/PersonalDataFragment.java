@@ -22,6 +22,7 @@ import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.presenter.registration.RegistrationPresenter;
 import com.firstapplication.freya.view.registration.activity.RegistrationActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.w3c.dom.Text;
 
@@ -92,12 +93,15 @@ public class PersonalDataFragment extends Fragment implements View.OnClickListen
                 String name = etName.getText().toString();
                 String patronymic = etPatronymic.getText().toString();
                 String date = this.date.getText().toString();
-                if (gender != ERROR && !surname.equals("") && !name.equals("")
-                        && !patronymic.equals("") && presenter.dateValidator(date))
-                    dataSender.onDataSend(new RegistrationData(
-                            surname, name, patronymic, gender, date));
-                else
-                    emptyFields();
+
+                if (gender == ERROR || surname.equals("") || name.equals("") || patronymic.equals(""))
+                    Snackbar.make(v, "Enter all data", Snackbar.LENGTH_LONG).show();
+
+                if (!presenter.dateValidator(date))
+                    Snackbar.make(v, "You are very young", Snackbar.LENGTH_LONG).show();
+
+                dataSender.onDataSend(new RegistrationData(surname, name,
+                        patronymic, gender, date));
                 break;
             case (int) R.id.btn_reg_date:
                 new DatePickerDialog(context, dateListener,
@@ -119,11 +123,6 @@ public class PersonalDataFragment extends Fragment implements View.OnClickListen
         today.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         date.setText(presenter.setDate(today));
     };
-
-    public void emptyFields() {
-        Toast.makeText(context, "Fill in all the fields",
-                Toast.LENGTH_SHORT).show();
-    }
 
     private void setGender(View view) {
         boolean checked = ((RadioButton) view).isChecked();

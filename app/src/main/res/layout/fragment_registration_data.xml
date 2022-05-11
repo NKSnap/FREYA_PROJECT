@@ -22,12 +22,12 @@
                 android:id="@+id/et_reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/white"
-                android:inputType="textWebEmailAddress"
-                android:hint="@string/hint_email"/>
+                android:hint="@string/hint_email"
+                android:inputType="textWebEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

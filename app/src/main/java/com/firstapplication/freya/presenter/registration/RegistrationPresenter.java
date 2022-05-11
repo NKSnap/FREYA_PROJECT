@@ -1,7 +1,6 @@
 package com.firstapplication.freya.presenter.registration;
 
 import android.annotation.SuppressLint;
-import android.util.Log;
 
 import com.firstapplication.freya.repository.registration.RegistrationDBRepository;
 import com.firstapplication.freya.repository.registration.RegistrationDBRepositoryImpl;
@@ -16,45 +15,48 @@ public class RegistrationPresenter {
     private final RegistrationDBRepository repository = new RegistrationDBRepositoryImpl();
     private final String[] mails = {"@mail.ru", "@gmail.com", "@yandex.ru"};
 
-    public boolean emailValidator (CharSequence email) {
+    public boolean toRegister(RegistrationData registrationData) {
+        String email = registrationData.getEmail();
+        String number = registrationData.getNumber();
+
+        if (repository.checkUsers(email, number))
+            return repository.writeToDB(registrationData);
+
+        return false;
+    }
+
+    public boolean emailValidator(CharSequence email) {
         if (email.length() <= 10)
             return false;
 
-        for (String e : mails) {
-            if ((email.toString()).contains(e)) {
+        for (String e : mails)
+            if ((email.toString()).contains(e))
                 return true;
-            }
-        }
 
         return false;
     }
 
-    public boolean passwordValidator (CharSequence password) {
-        return false;
+    public boolean passwordValidator(CharSequence password) {
+        String pass = String.valueOf(password);
+        return pass.matches("((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{4,20})");
     }
 
-    public boolean numberValidator (CharSequence number) {
-        return false;
+    public boolean numberValidator(CharSequence number) {
+        if (number.length() <= 4) return false;
+
+        String n = String.valueOf(number)
+                .replaceAll("[-( )]", "")
+                .substring(4);
+
+        return n.length() == 9;
     }
 
-    public boolean surnameValidator (CharSequence surname) {
-        return false;
-    }
-
-    public boolean nameValidator (CharSequence name) {
-        return false;
-    }
-
-    public boolean patronymicValidator (CharSequence patronymic) {
-        return false;
-    }
-
-    public boolean dateValidator (String date) {
+    public boolean dateValidator(String date) {
         long tenYears = 315576000000L;
 
         try {
             @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
-            Date docDate= format.parse(date);
+            Date docDate = format.parse(date);
 
             return docDate != null && docDate.getTime() < (new Date().getTime() - tenYears);
         } catch (ParseException e) {
