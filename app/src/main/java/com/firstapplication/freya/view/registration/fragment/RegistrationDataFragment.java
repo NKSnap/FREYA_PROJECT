@@ -3,25 +3,19 @@ package com.firstapplication.freya.view.registration.fragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.presenter.registration.RegistrationPresenter;
-import com.google.android.material.snackbar.Snackbar;
-
 import java.util.Objects;
 
 
@@ -33,6 +27,10 @@ public class RegistrationDataFragment extends Fragment {
     private boolean valEmail = false;
     private boolean valNumber = false;
     private boolean valPass = false;
+
+    private final int CREATED = 1;
+    private final int ALREADY_CREATED = 0;
+    private final int ERROR = -1;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -101,6 +99,8 @@ public class RegistrationDataFragment extends Fragment {
             public void afterTextChanged(Editable s) {
             }
         });
+
+        presenter.DBValidate();
     }
 
     public void getData(RegistrationData registrationData) {
@@ -126,10 +126,27 @@ public class RegistrationDataFragment extends Fragment {
             return;
         }
 
-        if (presenter.toRegister(registrationData)) {
+        int fKey = presenter.toRegister(registrationData);
+        if (fKey == CREATED) {
+            if (presenter.writeToSQLite(context, registrationData) == -1) {
+                presenter.deleteFromFirebase(registrationData);
+                Objects.requireNonNull(getActivity()).finish();
+                notifyUser("Непредвиденная ошибка!");
+                return;
+            }
+
+            notifyUser("Аккаунт создан!");
             Objects.requireNonNull(getActivity()).finish();
-            Toast.makeText(context, "Аккаунт создан!", Toast.LENGTH_SHORT).show();
-        } else
-            Toast.makeText(context, "Пользователь уже зарегестрирован!", Toast.LENGTH_SHORT).show();
+        } else if (fKey == ALREADY_CREATED) {
+            etPassword.setText("");
+            notifyUser("Пользователь уже зарегестрирован!");
+        } else if (fKey == ERROR) {
+            notifyUser("Непредвиденная ошибка!");
+            Objects.requireNonNull(getActivity()).finish();
+        }
+    }
+
+    private void notifyUser(String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }

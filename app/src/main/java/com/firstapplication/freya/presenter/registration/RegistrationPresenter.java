@@ -1,28 +1,48 @@
 package com.firstapplication.freya.presenter.registration;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.Log;
 
 import com.firstapplication.freya.repository.registration.RegistrationDBRepository;
 import com.firstapplication.freya.repository.registration.RegistrationDBRepositoryImpl;
+import com.firstapplication.freya.repository.registration.SQLiteAdapter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class RegistrationPresenter {
     private final RegistrationDBRepository repository = new RegistrationDBRepositoryImpl();
+    private SQLiteAdapter sqLiteAdapter;
     private final String[] mails = {"@mail.ru", "@gmail.com", "@yandex.ru"};
 
-    public boolean toRegister(RegistrationData registrationData) {
+    public int toRegister(RegistrationData registrationData) {
         String email = registrationData.getEmail();
         String number = registrationData.getNumber();
 
-        if (repository.checkUsers(email, number))
-            return repository.writeToDB(registrationData);
+        ArrayList<RegistrationData> data = repository.getData();
+        boolean flag = true;
+        for (RegistrationData rd : data)
+            if (rd.getNumber().equals(number) || rd.getEmail().equals(email)) {
+                Log.d("VALUES", "found");
+                flag = false;
+                break;
+            }
 
-        return false;
+        if (flag) {
+            if (repository.writeToDB(registrationData))
+                return 1;
+            return -1;
+        }
+        return 0;
+    }
+
+    public void DBValidate(){
+        repository.readFromDB();
     }
 
     public boolean emailValidator(CharSequence email) {
@@ -38,7 +58,7 @@ public class RegistrationPresenter {
 
     public boolean passwordValidator(CharSequence password) {
         String pass = String.valueOf(password);
-        return pass.matches("((?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{4,20})");
+        return pass.matches("((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{4,20})");
     }
 
     public boolean numberValidator(CharSequence number) {
@@ -78,5 +98,15 @@ public class RegistrationPresenter {
             month = "0" + month;
 
         return day + "." + month + "." + calendar.get(Calendar.YEAR);
+    }
+
+    public long writeToSQLite(Context context, RegistrationData data) {
+        sqLiteAdapter = new SQLiteAdapter(context);
+
+        return repository.writeToSQLite(sqLiteAdapter, data);
+    }
+
+    public void deleteFromFirebase(RegistrationData registrationData) {
+        repository.deleteFromDB(registrationData);
     }
 }

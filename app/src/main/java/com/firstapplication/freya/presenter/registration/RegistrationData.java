@@ -17,16 +17,16 @@ public class RegistrationData {
     private String password;
     private String number;
 
+    public RegistrationData() {
+
+    }
+
     public RegistrationData(String surname, String name, String patronymic, int gender, String date) {
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
         this.gender = gender;
         this.date = date;
-    }
-
-    public FirebaseFormat toFirebaseFormat() {
-        return new FirebaseFormat(this.email, this.number, this.password, this.surname, this.patronymic);
     }
 
     public String getEmail() {
@@ -94,7 +94,6 @@ public class RegistrationData {
         while (md5Hex.length() < 32)
             md5Hex.insert(0, "0");
 
-        Log.d(TAG_ERROR, md5Hex.toString());
         return md5Hex.toString();
     }
 }
