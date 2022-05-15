@@ -7,15 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 
 
-public class SQLiteAdapter {
-    private DBHelper dbHelper;
+public class SQLiteRepository {
+    private final DBHelper dbHelper;
     private SQLiteDatabase database;
 
-    public SQLiteAdapter(Context context) {
+    public SQLiteRepository(Context context) {
         dbHelper = new DBHelper(context.getApplicationContext());
     }
 
-    public SQLiteAdapter openToWrite(){
+    public SQLiteRepository openToWrite(){
         database = dbHelper.getWritableDatabase();
         return this;
     }

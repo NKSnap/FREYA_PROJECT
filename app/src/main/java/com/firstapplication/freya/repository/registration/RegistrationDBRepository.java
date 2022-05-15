@@ -9,5 +9,4 @@ public interface RegistrationDBRepository {
     void deleteFromDB(RegistrationData registrationData);
     void readFromDB();
     ArrayList<RegistrationData> getData();
-    long writeToSQLite(SQLiteAdapter repository, RegistrationData data);
 }

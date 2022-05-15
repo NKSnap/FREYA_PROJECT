@@ -107,14 +107,14 @@ public class RegistrationDataFragment extends Fragment {
         if (valEmail)
             registrationData.setEmail(etEmail.getText().toString());
         else {
-            Toast.makeText(context, "Почта введена некорректно", Toast.LENGTH_SHORT).show();
+            notifyUser("Почта введена некорректно");
             return;
         }
 
         if (valNumber)
             registrationData.setNumber(etNumber.getText().toString());
         else {
-            Toast.makeText(context, "Номер введен некорректно", Toast.LENGTH_SHORT).show();
+            notifyUser("Номер введен некорректно");
             return;
         }
 
@@ -122,7 +122,7 @@ public class RegistrationDataFragment extends Fragment {
             registrationData.setPassword(etPassword.getText().toString());
         else {
             etPassword.setText("");
-            Toast.makeText(context, "Пароль введен некорректно", Toast.LENGTH_SHORT).show();
+            notifyUser("Пароль введен некорректно");
             return;
         }
 

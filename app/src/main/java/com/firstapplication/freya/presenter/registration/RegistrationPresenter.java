@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.firstapplication.freya.repository.registration.RegistrationDBRepository;
 import com.firstapplication.freya.repository.registration.RegistrationDBRepositoryImpl;
-import com.firstapplication.freya.repository.registration.SQLiteAdapter;
+import com.firstapplication.freya.repository.registration.SQLiteRepository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
 
 public class RegistrationPresenter {
     private final RegistrationDBRepository repository = new RegistrationDBRepositoryImpl();
-    private SQLiteAdapter sqLiteAdapter;
+    private SQLiteRepository sqLiteRepository;
     private final String[] mails = {"@mail.ru", "@gmail.com", "@yandex.ru"};
 
     public int toRegister(RegistrationData registrationData) {
@@ -101,9 +101,13 @@ public class RegistrationPresenter {
     }
 
     public long writeToSQLite(Context context, RegistrationData data) {
-        sqLiteAdapter = new SQLiteAdapter(context);
+        sqLiteRepository = new SQLiteRepository(context);
 
-        return repository.writeToSQLite(sqLiteAdapter, data);
+        sqLiteRepository.openToWrite();
+        long res = sqLiteRepository.insertToDB(data);
+        sqLiteRepository.close();
+
+        return res;
     }
 
     public void deleteFromFirebase(RegistrationData registrationData) {

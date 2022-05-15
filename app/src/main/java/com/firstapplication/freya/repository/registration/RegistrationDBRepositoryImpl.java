@@ -58,24 +58,12 @@ public class RegistrationDBRepositoryImpl implements RegistrationDBRepository {
     }
 
     @Override
-    public long writeToSQLite(SQLiteAdapter repository, RegistrationData data) {
-        repository.openToWrite();
-        long res = repository.insertToDB(data);
-        repository.close();
-
-        return res;
-    }
-
-    @Override
     public void readFromDB() {
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot s : snapshot.getChildren()) {
+                for (DataSnapshot s : snapshot.getChildren())
                     dbData.add(s.getValue(RegistrationData.class));
-                    Log.d(TAG_ERROR, "Value is: +" +
-                            Objects.requireNonNull(s.getValue(RegistrationData.class)).getNumber());
-                }
             }
 
             @Override
