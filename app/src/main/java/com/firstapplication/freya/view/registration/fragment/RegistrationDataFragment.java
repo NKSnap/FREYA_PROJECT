@@ -99,7 +99,11 @@ public class RegistrationDataFragment extends Fragment {
             public void afterTextChanged(Editable s) {
             }
         });
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
         presenter.DBValidate();
     }
 
@@ -119,7 +123,7 @@ public class RegistrationDataFragment extends Fragment {
         }
 
         if (valPass)
-            registrationData.setPassword(etPassword.getText().toString());
+            registrationData.setEncryptPassword(etPassword.getText().toString());
         else {
             etPassword.setText("");
             notifyUser("Пароль введен некорректно");

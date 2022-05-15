@@ -59,6 +59,9 @@ public class RegistrationDBRepositoryImpl implements RegistrationDBRepository {
 
     @Override
     public void readFromDB() {
+        if (dbData.size() > 0)
+            dbData.clear();
+
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

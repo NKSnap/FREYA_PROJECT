@@ -42,6 +42,10 @@ public class RegistrationData {
     }
 
     public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setEncryptPassword(String password) {
         this.password = toEncrypt(password);
     }
 
