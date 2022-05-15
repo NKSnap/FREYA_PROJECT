@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="370dp"
+    android:layout_height="430dp"
     android:background="@color/white"
     tools:context=".view.signin.fragment.LogInFragment">
 
@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="11dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,14 +39,14 @@
                 android:layout_marginBottom="2dp"
                 android:background="@color/white"
                 android:hint="@string/hint_email"
-                android:inputType="textWebEmailAddress"/>
+                android:inputType="textWebEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:passwordToggleEnabled="true" >
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/et_log_password"
@@ -85,21 +86,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="40dp"
+            android:orientation="vertical">
 
             <TextView
-                style="@style/info_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/text_not_registered" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="7dp"
+                android:text="@string/text_not_registered"
+                android:textColor="#EB000000"
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/btn_not_registered"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="103dp"
+                android:layout_gravity="center_horizontal"
                 android:backgroundTint="@color/white"
                 android:text="@string/button_not_registered"
                 android:textColor="@color/btn_blue" />
