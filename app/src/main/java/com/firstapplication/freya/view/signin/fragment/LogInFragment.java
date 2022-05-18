@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.presenter.signin.SingInPresenter;
+import com.firstapplication.freya.view.account.activity.AccountActivity;
 import com.firstapplication.freya.view.registration.activity.RegistrationActivity;
 
 
@@ -143,6 +144,8 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
                 break;
             case LOGIN:
                 // Open Account Activity
+                Intent intent = new Intent(context, AccountActivity.class);
+                startActivity(intent);
                 Toast.makeText(context, "Данные введены верно", Toast.LENGTH_SHORT).show();
                 break;
             default:

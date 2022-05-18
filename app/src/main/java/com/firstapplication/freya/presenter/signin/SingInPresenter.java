@@ -1,14 +1,11 @@
 package com.firstapplication.freya.presenter.signin;
 
 import android.content.Context;
-import android.util.Log;
-
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.repository.signin.SignInDBRepository;
 import com.firstapplication.freya.repository.signin.SignInDBRepositoryImpl;
-import com.firstapplication.freya.view.signin.fragment.LogInFragment;
-
 import java.util.ArrayList;
+
 
 public class SingInPresenter {
     private final SignInDBRepository repository = new SignInDBRepositoryImpl();
