@@ -2,11 +2,12 @@ package com.firstapplication.freya.presenter.registration;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class RegistrationData {
+public class RegistrationData implements Serializable {
     private static final String TAG_ERROR = "ERROR";
     private String surname;
     private String name;

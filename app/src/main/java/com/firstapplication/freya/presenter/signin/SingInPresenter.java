@@ -31,16 +31,33 @@ public class SingInPresenter {
         repository.readDataFromDB();
     }
 
-    public int toLogin(RegistrationData registrationData) {
+    /*
+    * В функции toLogin заменить возврат на объект класса RegistrationData
+    * Исправить функцию loginListener(int key) в соответствии с изменения в toLogin
+    * Переданный объект класса RegistrationData отправляем в AccountActivity
+    * Уже в AccountActivity передаем данные во фрагмент и устанавливает нужные значения
+    * */
+
+    public RegistrationData toLogin(RegistrationData registrationData) {
         ArrayList<RegistrationData> data = repository.getData();
         String userEmail = registrationData.getEmail();
         String userPassword = registrationData.getPassword();
 
         for (RegistrationData rd : data)
             if (userEmail.equals(rd.getEmail()) && userPassword.equals(rd.getPassword()))
-                return 1;
+                return rd;
 
-        return 0;
+        return null;
+
+//        ArrayList<RegistrationData> data = repository.getData();
+//        String userEmail = registrationData.getEmail();
+//        String userPassword = registrationData.getPassword();
+//
+//        for (RegistrationData rd : data)
+//            if (userEmail.equals(rd.getEmail()) && userPassword.equals(rd.getPassword()))
+//                return 1;
+//
+//        return 0;
     }
 
 }

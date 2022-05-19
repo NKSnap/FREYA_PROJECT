@@ -132,28 +132,39 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
 
     private void registerNewAccount() {
         // Open activity for registration
+        etEmail.setText("");
+        etPassword.setText("");
+
         Intent intent = new Intent(context, RegistrationActivity.class);
         startActivity(intent);
     }
 
-    private void loginListener(int key) {
-        switch (key) {
-            case NOT_CORRECT:
-                Toast.makeText(context, "Пользователь не зарегестрирован", Toast.LENGTH_SHORT).show();
-                etPassword.setText("");
-                break;
-            case LOGIN:
-                // Open Account Activity
-                Intent intent = new Intent(context, AccountActivity.class);
-                startActivity(intent);
-                Toast.makeText(context, "Данные введены верно", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                Log.d(TAG_ERROR, "Ошибка в возвращенных данных при " +
-                        "поиске зарегестрированного пользователя " +
-                        "(Функция presenter.toLogin(registrationData))");
+    private void loginListener(RegistrationData rd) {
+        if (rd == null) {
+            Toast.makeText(context, "Пользователь не зарегестрирован", Toast.LENGTH_SHORT).show();
+            etPassword.setText("");
+        } else {
+            Intent intent = new Intent(context, AccountActivity.class);
+            intent.putExtra("user", rd);
+            startActivity(intent);
+            Toast.makeText(context, "Данные введены верно", Toast.LENGTH_SHORT).show();
         }
-
+//        switch (key) {
+//            case NOT_CORRECT:
+//                Toast.makeText(context, "Пользователь не зарегестрирован", Toast.LENGTH_SHORT).show();
+//                etPassword.setText("");
+//                break;
+//            case LOGIN:
+//                // Open Account Activity
+//                Intent intent = new Intent(context, AccountActivity.class);
+//                startActivity(intent);
+//                Toast.makeText(context, "Данные введены верно", Toast.LENGTH_SHORT).show();
+//                break;
+//            default:
+//                Log.d(TAG_ERROR, "Ошибка в возвращенных данных при " +
+//                        "поиске зарегестрированного пользователя " +
+//                        "(Функция presenter.toLogin(registrationData))");
+//        }
     }
 
 }
