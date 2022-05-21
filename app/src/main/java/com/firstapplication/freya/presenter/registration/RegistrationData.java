@@ -6,6 +6,10 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 public class RegistrationData implements Serializable {
     private static final String TAG_ERROR = "ERROR";
@@ -17,6 +21,26 @@ public class RegistrationData implements Serializable {
     private String email;
     private String password;
     private String number;
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
+
+    public void setGender(int gender) {
+        this.gender = gender;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public RegistrationData() {
 
@@ -88,7 +112,6 @@ public class RegistrationData implements Serializable {
             messageDigest.update(st.getBytes());
             digest = messageDigest.digest();
         } catch (NoSuchAlgorithmException e) {
-            // Передаваемый алгоритм в getInstance(...) не существует
             Log.d(TAG_ERROR, "Шифрование.\n\tПередаваемый алгоритм в getInstance(...) не существует");
             e.printStackTrace();
         }
