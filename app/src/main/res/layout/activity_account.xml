@@ -7,7 +7,6 @@
     android:background="@color/background"
     tools:context=".view.account.activity.AccountActivity">
 
-
     <Button
         android:id="@+id/btn_get_out"
         android:layout_width="match_parent"
@@ -33,7 +32,7 @@
         android:name="com.firstapplication.freya.view.account.fragment.RecordsListFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fragment_container_account_data"/>
