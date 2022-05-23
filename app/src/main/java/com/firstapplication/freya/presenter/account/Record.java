@@ -5,10 +5,10 @@ public class Record {
     private String dateAndTime;
     private int isActive;
 
-    public Record(String haircut, String dateAndTime, int flag){
+    public Record(String haircut, String dateAndTime, int isActive) {
         this.haircut = haircut;
         this.dateAndTime = dateAndTime;
-        this.isActive =flag;
+        this.isActive = isActive;
     }
 
     public String getHaircut() {

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.firstapplication.freya.R;
+import com.firstapplication.freya.presenter.account.AccountPresenter;
 import com.firstapplication.freya.presenter.account.Record;
 import com.firstapplication.freya.presenter.account.RecordAdapter;
 
@@ -20,10 +21,11 @@ import java.util.ArrayList;
 
 
 public class RecordsListFragment extends Fragment {
+    private final AccountPresenter presenter = new AccountPresenter();
     private Context context;
-    private ListView recordsList;
 
-    private ArrayList<Record> records = new ArrayList<>();
+    private ListView recordsList;
+    private ArrayList<Record> records;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -40,19 +42,12 @@ public class RecordsListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setInitialData();
+        presenter.initDB(context);
+        records = presenter.getRecords();
 
         recordsList = view.findViewById(R.id.list_records);
         RecordAdapter recordAdapter = new RecordAdapter(context, R.layout.list_records, records);
         recordsList.setAdapter(recordAdapter);
-    }
-
-    private void setInitialData(){
-        records.add(new Record("Бразилия", "Бразилиа", R.drawable.ic_done_24));
-        records.add(new Record("Аргентина", "Буэнос-Айрес", R.drawable.ic_done_24));
-        records.add(new Record("Колумбия", "Богота", R.drawable.ic_close_24));
-        records.add(new Record("Уругвай", "Монтевидео", R.drawable.ic_done_24));
-        records.add(new Record("Чили", "Сантьяго", R.drawable.ic_close_24));
     }
 }
 
