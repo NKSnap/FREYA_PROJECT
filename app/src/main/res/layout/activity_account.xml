@@ -7,17 +7,6 @@
     android:background="@color/background"
     tools:context=".view.account.activity.AccountActivity">
 
-    <Button
-        android:id="@+id/btn_get_out"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Выйти"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fragment_container_records"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_account_data"

@@ -38,7 +38,10 @@
     <string name="text_edit_account">Редактировать профиль</string>
     <string name="text_location">Местоположение</string>
     <string name="text_contacts">Контакты</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_go_out">Выйти</string>
+    <string name="text_settings">Настройки</string>
+    <string name="text_make_note">Записаться</string>
+    <string name="text_your_records">Ваши записи</string>
+
 
 </resources>

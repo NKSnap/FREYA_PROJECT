@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FREYA">
         <activity
+            android:name=".view.haircut.activity.HaircutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MenuActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.account.activity.AccountActivity"
             android:exported="false" />
         <activity
