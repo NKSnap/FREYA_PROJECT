@@ -7,10 +7,17 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/Theme.FREYA">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.account.activity.AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.registration.activity.RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.signin.activity.SingInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

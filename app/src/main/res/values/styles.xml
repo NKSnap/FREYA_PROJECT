@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="info_text">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">#EB000000</item>
+        <item name="android:fontFamily">@font/buenard_regular</item>
+    </style>
+
+    <style name="account_personal">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/buenard_bold</item>
+    </style>
+
+</resources>
