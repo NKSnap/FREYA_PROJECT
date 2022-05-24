@@ -9,8 +9,6 @@ import java.util.ArrayList;
 
 public class SignInDBRepositoryImpl implements SignInDBRepository {
     private final RegistrationDBRepository repository = new RegistrationDBRepositoryImpl();
-    private final String TAG_ERROR = "ERROR";
-    private final String dbChild = "login";
 
     @Override
     public void readDataFromDB() {

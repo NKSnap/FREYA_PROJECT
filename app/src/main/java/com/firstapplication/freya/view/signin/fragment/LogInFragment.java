@@ -1,7 +1,9 @@
 package com.firstapplication.freya.view.signin.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,26 +22,29 @@ import android.widget.Toast;
 import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.presenter.signin.SingInPresenter;
+import com.firstapplication.freya.view.account.activity.AccountActivity;
 import com.firstapplication.freya.view.registration.activity.RegistrationActivity;
+
+import java.util.Objects;
+import java.util.Set;
 
 
 public class LogInFragment extends Fragment implements View.OnClickListener {
+    private final SingInPresenter presenter = new SingInPresenter();
+
     private EditText etEmail, etPassword;
-    private Context context;
-    private SingInPresenter presenter;
-
-    private final static int ERROR = -1;
-    private final static int LOGIN = 1;
-    private final static int NOT_CORRECT = 0;
-    private final String TAG_ERROR = "ERROR";
-
     private boolean valEmail = false;
+    private Context context;
+
+    private SharedPreferences sharedPreferences;
+    public static final String APP_PREFERENCES = "savedInf";
+    public static final String APP_PREFERENCES_EMAIL = "EMAIL";
+    public static final String APP_PREFERENCES_PASSWORD = "PASSWORD";
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         this.context = context;
-        presenter = new SingInPresenter(context);
     }
 
     @Override
@@ -51,6 +56,16 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        sharedPreferences = context.getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        Bundle args = this.getArguments();
+        if (args == null) {
+            String email = sharedPreferences.getString(APP_PREFERENCES_EMAIL, "");
+            String password = sharedPreferences.getString(APP_PREFERENCES_PASSWORD, "");
+
+            if (!email.equals("") && !password.equals(""))
+                toOldLogin(presenter.getUserObject(sharedPreferences));
+        }
 
         etEmail = view.findViewById(R.id.et_log_email);
         etEmail.addTextChangedListener(new TextWatcher() {
@@ -96,17 +111,13 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
             case (int) R.id.btn_login:
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
-
                 if (loginDataValidator(password)) {
                     RegistrationData registrationData = new RegistrationData();
                     registrationData.setEmail(email);
                     registrationData.setEncryptPassword(password);
 
-                    Log.d(TAG_ERROR, "-------   " + registrationData.getPassword());
-
                     loginListener(presenter.toLogin(registrationData));
                 }
-
                 break;
         }
     }
@@ -131,26 +142,36 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
 
     private void registerNewAccount() {
         // Open activity for registration
+        etEmail.setText("");
+        etPassword.setText("");
+
         Intent intent = new Intent(context, RegistrationActivity.class);
         startActivity(intent);
     }
 
-    private void loginListener(int key) {
-        switch (key) {
-            case NOT_CORRECT:
-                Toast.makeText(context, "Пользователь не зарегестрирован", Toast.LENGTH_SHORT).show();
-                etPassword.setText("");
-                break;
-            case LOGIN:
-                // Open Account Activity
-                Toast.makeText(context, "Данные введены верно", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-                Log.d(TAG_ERROR, "Ошибка в возвращенных данных при " +
-                        "поиске зарегестрированного пользователя " +
-                        "(Функция presenter.toLogin(registrationData))");
-        }
+    private void loginListener(RegistrationData rd) {
+        if (rd == null) {
+            Toast.makeText(context, "Пользователь не зарегестрирован", Toast.LENGTH_SHORT).show();
+            etPassword.setText("");
+        } else {
+            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+            presenter.saveNewUser(rd, editor);
 
+            Intent intent = new Intent(context, AccountActivity.class);
+            intent.putExtra("user", rd);
+            startActivity(intent);
+            Toast.makeText(context, "Данные введены верно", Toast.LENGTH_SHORT).show();
+            Objects.requireNonNull(getActivity()).finish();
+        }
+    }
+
+    private void toOldLogin(RegistrationData data) {
+        if (data != null) {
+            Intent intent = new Intent(context, AccountActivity.class);
+            intent.putExtra("user", data);
+            startActivity(intent);
+            Objects.requireNonNull(getActivity()).finish();
+        }
     }
 
 }

@@ -4,19 +4,27 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/drawable/design_password_show.xml" value="0.2703125" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/drawable/ic_done_24.xml" value="0.2703125" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/drawable/separator.xml" value="0.2703125" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/font-v26/fonts.xml" value="0.284375" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/font/fonts.xml" value="0.284375" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/activity_account.xml" value="0.17481884057971014" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/activity_login.xml" value="0.22644927536231885" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/activity_main.xml" value="0.20697463768115942" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/activity_registration.xml" value="0.2346014492753623" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/activity_sing_in.xml" value="0.22644927536231885" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/content_account.xml" value="0.17481884057971014" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_account_data.xml" value="0.4" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_freya_image.xml" value="0.22735507246376813" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_log_in.xml" value="0.22282608695652173" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_personal_data.xml" value="0.21965579710144928" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_records_list.xml" value="0.23505434782608695" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_registration_data.xml" value="0.21965579710144928" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_sing_in.xml" value="0.22644927536231885" />
         <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/fragment_sing_in_freya.xml" value="0.22282608695652173" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/list_item.xml" value="0.21195652173913043" />
+        <entry key="..\:/Android Projects/FREYA_PROJECT/app/src/main/res/layout/list_records.xml" value="0.21603260869565216" />
       </map>
     </option>
   </component>
