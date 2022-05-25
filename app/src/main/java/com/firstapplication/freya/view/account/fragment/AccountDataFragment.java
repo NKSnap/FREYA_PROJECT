@@ -39,8 +39,7 @@ public class AccountDataFragment extends Fragment {
         if (args != null) {
             Log.d("ERROR", "Получение данных");
             userData = (RegistrationData) args.getSerializable("user");
-        }
-        else {
+        } else {
             Log.d("ERROR", "Ошибка передачи данных во фрагмент AccountDataFragment");
             Objects.requireNonNull(getActivity()).finish();
         }

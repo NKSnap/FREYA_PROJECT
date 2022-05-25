@@ -30,7 +30,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/text_reg_in"
+            android:text="@string/login_data"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_container_image_freya" />
 
@@ -54,7 +54,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/text_person_data"
+            android:text="@string/person_data"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_container_reg_data" />
 

@@ -34,7 +34,11 @@ public class RecordAdapter extends ArrayAdapter<Record> {
         TextView textHaircut = view.findViewById(R.id.tw_haircut);
         TextView textDateAndTime = view.findViewById(R.id.tw_date_and_time);
 
-        imageIsActive.setImageResource(record.getIsActive());
+        int imgCode = record.getIsActive();
+        if (imgCode != R.drawable.ic_done_24)
+            imgCode = R.drawable.ic_close_24;
+
+        imageIsActive.setImageResource(imgCode);
         textHaircut.setText(record.getHaircut());
         textDateAndTime.setText(record.getDateAndTime());
 

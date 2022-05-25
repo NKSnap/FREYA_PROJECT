@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
+    android:background="@drawable/round_angles_white"
     tools:context=".view.signin.fragment.SingInFreyaFragment">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:fontFamily="@font/chicle"
-        android:text="@string/sign_in_freya"
+        android:text="@string/freya"
         android:textColor="@color/freya"
         android:textSize="83sp" />
 

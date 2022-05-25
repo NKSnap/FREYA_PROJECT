@@ -7,6 +7,7 @@ import com.firstapplication.freya.repository.account.SQLiteRepository;
 import com.firstapplication.freya.repository.account.SQLiteRepositoryImpl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class AccountPresenter {
     SQLiteRepository repository = null;
@@ -23,6 +24,7 @@ public class AccountPresenter {
 
         repository.open();
         ArrayList<Record> records = (ArrayList<Record>) repository.readFromDB();
+        Collections.reverse(records);
         repository.close();
         return records;
     }

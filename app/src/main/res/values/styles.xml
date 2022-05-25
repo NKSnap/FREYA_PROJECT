@@ -13,4 +13,12 @@
         <item name="android:fontFamily">@font/buenard_bold</item>
     </style>
 
+    <style name="et_not_edit">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:background">@drawable/round_angles_gray6</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
 </resources>
