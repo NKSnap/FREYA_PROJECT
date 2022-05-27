@@ -75,6 +75,7 @@ public class RecordsListFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         if (v.getId() == R.id.btn_make_record) {
                 Intent intent = new Intent(context, HaircutActivity.class);
+                intent.putExtra("user", userData);
                 startActivity(intent);
         }
     }

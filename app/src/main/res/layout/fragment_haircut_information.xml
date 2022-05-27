@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="731dp"
         android:orientation="vertical">
 
         <TextView
@@ -92,7 +91,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radio_btn_male_hair"
+                android:id="@+id/radio_btn_male_haircut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -101,7 +100,7 @@
                 android:textSize="20sp" />
 
             <RadioButton
-                android:id="@+id/radio_btn_female_female"
+                android:id="@+id/radio_btn_female_haircut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -127,6 +126,51 @@
             android:layout_marginTop="6dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/round_angles_gray6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/time"
+            android:textColor="@color/dark_gray"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:id="@+id/spinner_time"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/round_angles_gray6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/address"
+            android:textColor="@color/dark_gray"
+            android:textSize="17sp" />
+
+        <Spinner
+            android:id="@+id/spinner_address"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/round_angles_gray6" />
+
+        <Button
+            android:id="@+id/btn_book_haircut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="15dp"
+            android:text="@string/text_make_note" />
 
     </LinearLayout>
 </FrameLayout>
