@@ -20,7 +20,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/buenard_bold"
-            android:text="@string/text_change_info"
+            android:text="@string/change_info"
             android:textColor="@color/black"
             android:textSize="23sp" />
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/buenard_bold"
-            android:text="@string/text_change_personal_info"
+            android:text="@string/change_personal_info"
             android:textColor="@color/dark_gray"
             android:textSize="17sp" />
 

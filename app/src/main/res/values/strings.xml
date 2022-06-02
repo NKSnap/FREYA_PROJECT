@@ -32,15 +32,15 @@
         <item>yandex.ru</item>
     </string-array>
 
-    <string name="text_edit_account">Редактировать профиль</string>
-    <string name="text_location">Местоположение</string>
-    <string name="text_contacts">Контакты</string>
-    <string name="text_go_out">Выйти</string>
-    <string name="text_settings">Настройки</string>
-    <string name="text_make_note">Записаться</string>
-    <string name="text_your_records">Ваши записи</string>
-    <string name="text_change_info">Редактирование информации</string>
-    <string name="text_change_personal_info">Изменять персональную информацию можно только в настрйках аккаунта</string>
+    <string name="edit_account">Редактировать профиль</string>
+    <string name="location">Местоположение</string>
+    <string name="contacts">Контакты</string>
+    <string name="go_out">Выйти</string>
+    <string name="settings">Настройки</string>
+    <string name="make_note">Записаться</string>
+    <string name="your_records">Ваши записи</string>
+    <string name="change_info">Редактирование информации</string>
+    <string name="change_personal_info">Изменять персональную информацию можно только в настрйках аккаунта</string>
     <string name="phone_number">Номер телефона</string>
     <string name="haircut">Стрижка</string>
     <string name="haircut_male">Мужская</string>
@@ -49,24 +49,8 @@
     <string name="time">Время</string>
     <string name="address">Адрес</string>
 
-    <string-array name="times">
-        <item>9:30</item>
-        <item>10:00</item>
-        <item>10:30</item>
-        <item>11:00</item>
-        <item>11:30</item>
-        <item>12:00</item>
-        <item>12:30</item>
-        <item>13:00</item>
-        <item>13:30</item>
-        <item>14:00</item>
-        <item>14:30</item>
-        <item>15:00</item>
-        <item>15:30</item>
-        <item>16:00</item>
-        <item>16:30</item>
-        <item>17:00</item>
-        <item>17:30</item>
+    <string-array name="addresses">
+        <item>ул. Московская 267</item>
     </string-array>
 
 </resources>

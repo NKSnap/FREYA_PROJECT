@@ -1,7 +1,6 @@
 package com.firstapplication.freya.presenter.haircut;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 

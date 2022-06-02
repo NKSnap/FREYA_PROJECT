@@ -170,7 +170,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="15dp"
-            android:text="@string/text_make_note" />
+            android:text="@string/make_note" />
 
     </LinearLayout>
 </FrameLayout>

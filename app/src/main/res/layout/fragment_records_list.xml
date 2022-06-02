@@ -18,7 +18,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:textSize="21sp"
-            android:text="@string/text_your_records" />
+            android:text="@string/your_records" />
 
         <View
             android:layout_width="fill_parent"
@@ -38,7 +38,7 @@
             android:id="@+id/btn_make_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/text_make_note"
+            android:text="@string/make_note"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="5dp"
