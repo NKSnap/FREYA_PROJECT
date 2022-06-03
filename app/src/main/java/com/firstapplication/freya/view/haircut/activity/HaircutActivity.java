@@ -6,10 +6,9 @@ import android.os.Bundle;
 
 import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
-import com.firstapplication.freya.view.account.fragment.AccountDataFragment;
-import com.firstapplication.freya.view.account.fragment.RecordsListFragment;
 import com.firstapplication.freya.view.haircut.fragment.HaircutInformationFragment;
 import com.firstapplication.freya.view.haircut.fragment.InformationChangeFragment;
+
 
 public class HaircutActivity extends AppCompatActivity {
 

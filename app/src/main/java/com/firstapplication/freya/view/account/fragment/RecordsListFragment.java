@@ -12,15 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.firstapplication.freya.R;
 import com.firstapplication.freya.presenter.account.AccountPresenter;
 import com.firstapplication.freya.presenter.account.Record;
 import com.firstapplication.freya.presenter.account.RecordAdapter;
-import com.firstapplication.freya.presenter.haircut.HaircutPresenter;
 import com.firstapplication.freya.presenter.registration.RegistrationData;
 import com.firstapplication.freya.view.haircut.activity.HaircutActivity;
 
@@ -30,7 +27,6 @@ import java.util.Objects;
 
 public class RecordsListFragment extends Fragment implements View.OnClickListener {
     private final AccountPresenter accountPresenter = new AccountPresenter();
-    private final HaircutPresenter haircutPresenter = new HaircutPresenter();
     private Context context;
 
     private ListView recordsList;
@@ -47,7 +43,6 @@ public class RecordsListFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         Bundle args = this.getArguments();
         if (args != null) {
             Log.d("ERROR", "Получение данных");
@@ -80,11 +75,6 @@ public class RecordsListFragment extends Fragment implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-//        try {
-//            Thread.sleep(1500);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         Intent intent = new Intent(context, HaircutActivity.class);
             intent.putExtra("user", userData);
             startActivity(intent);

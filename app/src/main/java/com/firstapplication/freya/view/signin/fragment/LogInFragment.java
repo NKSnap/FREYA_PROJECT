@@ -141,7 +141,6 @@ public class LogInFragment extends Fragment implements View.OnClickListener {
     }
 
     private void registerNewAccount() {
-        // Open activity for registration
         etEmail.setText("");
         etPassword.setText("");
 

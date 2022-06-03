@@ -20,6 +20,10 @@ public class SingInPresenter {
     private final SignInDBRepository repository = new SignInDBRepositoryImpl();
     private final String[] mails = {"@mail.ru", "@gmail.com", "@yandex.ru"};
 
+    public void deleteSavedUser() {
+
+    }
+
     public void saveNewUser(RegistrationData data, SharedPreferences.Editor editor) {
         editor.putString(EMAIL, data.getEmail());
         editor.putString(NUMBER, data.getNumber());
