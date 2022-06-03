@@ -58,7 +58,7 @@ public class RegistrationPresenter {
 
     public boolean passwordValidator(CharSequence password) {
         String pass = String.valueOf(password);
-        return pass.matches("((?=.*d)(?=.*[a-z])(?=.*[A-Z]).{4,20})");
+        return pass.matches("((?=.*[a-z])(?=.*[A-Z]).{4,20})");
     }
 
     public boolean numberValidator(CharSequence number) {
